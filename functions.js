@@ -21,8 +21,10 @@ function checkGuess() {
 
     if (userGuess === randomNumber) {
         lastResult.textContent = 'Congratulations! You got it right!';
-        lastResult.style.backgroundColor = 'green';
-        sec.style.backgroundColor = 'green';
+        lastResult.style.backgroundColor = 'rgb(159, 238, 40)';
+        lastResult.style.textShadow = '5px 2px 4px blue';
+        lastResult.style.fontSize = '180%';
+        sec.style.backgroundColor = 'rgb(159, 238, 40)';
         lowOrHi.textContent ='';
         setGameOver();
     } else if (guessCount === 10) {
@@ -31,15 +33,17 @@ function checkGuess() {
         setGameOver();
     } else {
         lastResult.textContent = 'Wrong!';
-        lastResult.style.backgroundColor = 'red';
+        lastResult.style.fontSize = '150%';
+        lastResult.align = 'center';
+        lastResult.style.backgroundColor = 'rgb(158, 20, 20)';
         if(userGuess < randomNumber - 10) {
-          lowOrHi.textContent = 'Last guess was too low!';
+          lowOrHi.textContent = 'Last guess was way too low!';
         } else if(userGuess < randomNumber && userGuess >= randomNumber - 10) {
-          lowOrHi.textContent = 'Last guess was low!';
+          lowOrHi.textContent = 'Last guess was still low!';
         } else if(userGuess > randomNumber - 10) {
-          lowOrHi.textContent = 'Last guess was too high!';
+          lowOrHi.textContent = 'Last guess was way too high!';
         } else if(userGuess > randomNumber && userGuess <= randomNumber - 10) {
-          lowOrHi.textContent = 'Last guess was high!';
+          lowOrHi.textContent = 'Last guess was still high!';
         }
     }
     guessCount++;
@@ -81,7 +85,7 @@ function resetGame() {
     guessField.value = '';
     guessField.focus();
 
-    lastResult.style.backgroundColor = ' rgb(152, 173, 190)';
-    sec.style.backgroundColor = 'rgb(152, 173, 190)';
+    lastResult.style.backgroundColor = ' rgb(168, 211, 247)';
+    sec.style.backgroundColor = 'rgb(168, 211, 247)';
     randomNumber = Math.floor(Math.random() * 100) + 1;
 }
