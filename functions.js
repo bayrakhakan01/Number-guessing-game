@@ -4,6 +4,7 @@ const guesses = document.querySelector('.guesses');
 const lastResult = document.querySelector('.lastResult');
 const lowOrHi = document.querySelector('.lowOrHi');
 const rNum = document.querySelector('.rNum');
+const sec = document.querySelector('section');
 
 const guessSubmit = document.querySelector('.guessSubmit');
 const guessField = document.querySelector('.guessField');
@@ -21,6 +22,7 @@ function checkGuess() {
     if (userGuess === randomNumber) {
         lastResult.textContent = 'Congratulations! You got it right!';
         lastResult.style.backgroundColor = 'green';
+        sec.style.backgroundColor = 'green';
         lowOrHi.textContent ='';
         setGameOver();
     } else if (guessCount === 10) {
@@ -50,11 +52,9 @@ guessField.addEventListener('keyup', function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
         guessSubmit.click(checkGuess);
-        guessSubmit.addEventListener('click', checkGuess);
+        guessSubmit.addEventListener('click', checkGuess); // you can use this single code line without enter key
     }
 })
-// without enter key
-
 
 
 function setGameOver() {
@@ -81,7 +81,7 @@ function resetGame() {
     guessField.value = '';
     guessField.focus();
 
-    lastResult.style.backgroundColor = 'white';
-
-randomNumber = Math.floor(Math.random() * 100) + 1;
+    lastResult.style.backgroundColor = ' rgb(152, 173, 190)';
+    sec.style.backgroundColor = 'rgb(152, 173, 190)';
+    randomNumber = Math.floor(Math.random() * 100) + 1;
 }
