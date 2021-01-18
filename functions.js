@@ -70,3 +70,22 @@ function setGameOver() {
     resetButton.addEventListener('click', resetGame);
 }
 
+function resetGame() {
+    guessCount = 1;
+
+    const resetParas = document.querySelectorAll('.resultParas p');
+    for (let i = 0 ; i < resetParas.length ; i++) {
+        resetParas[i].textContent = '';
+    }
+
+    resetButton.parentNode.removeChild(resetButton);
+
+    guessField.disabled = false;
+    guessSubmit.disabled = false;
+    guessField.value = '';
+    guessField.focus();
+
+    lastResult.style.backgroundColor = ' rgb(168, 211, 247)';
+    sec.style.backgroundColor = 'rgb(168, 211, 247)';
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+}
