@@ -36,6 +36,7 @@ function checkGuess() {
         lastResult.style.fontSize = '150%';
         lastResult.align = 'center';
         lastResult.style.backgroundColor = 'rgb(158, 20, 20)';
+        
         if(userGuess < randomNumber - 10) {
           lowOrHi.textContent = 'Last guess was way too low!';
         } else if(userGuess < randomNumber && userGuess >= randomNumber - 10) {
@@ -46,6 +47,7 @@ function checkGuess() {
           lowOrHi.textContent = 'Last guess was still high!';
         }
     }
+    
     guessCount++;
     guessField.value = '';
     guessField.focus();
